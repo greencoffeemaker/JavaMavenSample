@@ -1,0 +1,38 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.gmail.greencoffeemaker.java.maven.sample</groupId>
+  <artifactId>maven-root</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>Maven Root Project</name>
+  <description>This Project provide Maven's Paremnt POM, and Building for All Child Projects.</description>
+
+  <properties>
+    <module.groupId>${project.groupId}</module.groupId>
+    <module.version>${project.version}</module.version>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>${module.groupId}</groupId>
+        <version>${module.version}</version>
+        <artifactId>main-module</artifactId>
+      </dependency>
+      <dependency>
+        <groupId>${module.groupId}</groupId>
+        <version>${module.version}</version>
+        <artifactId>sub-module</artifactId>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <modules>
+    <module>../main-module</module>
+    <module>../sub-module</module>
+  </modules>
+
+  <build>
+  </build>
+
+</project>
